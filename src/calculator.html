@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>Calculator</title>
+    <!-- <script>export = {}</script> -->
+</head>
+
+<body>
+    <h2><center>Calculator</center></h2>
+    <div class="display">
+
+        <!-- display starts -->
+        <table class="textField">
+            <tr>
+                <td>
+                    <input type="text" id="inputtext" placeholder="0"/>
+                </td>
+            </tr>
+        </table>
+        <!-- display ends -->
+
+        <!-- DEG row starts -->
+        <table class="drow">
+            <tr>
+                <td style="font-weight: 600;" onclick="degToRad()">DEG</td>
+                <td style="font-weight: 600;" onclick="farToCel()">F-E</td>
+            </tr>
+        </table>
+        <!-- DEG row ends -->
+
+        <!-- M row starts -->
+        <table class="mrow">
+            <tr>
+                <td style="font-weight: bold; color: rgba(175, 175, 175, 0.815);" onclick="memory('mclear')">MC</td>
+                <td style="font-weight: bold; color: rgba(175, 175, 175, 0.815);" onclick="memory('mrecall')">MR</td>
+                <td onclick="memory('mplus')">M+</td>
+                <td onclick="memory('msub')">M-</td>
+                <td onclick="memory('mstore')">MS</td>
+            </tr>
+        </table>
+        <!-- M row ends -->
+
+
+        <div class="funcTable">
+            <table>
+                <!-- row starts -->
+                <tr>
+                    <!-- Trigonometry dropdown starts -->
+                    <td colspan="2" class="dropdown" style="background-color: whitesmoke;">
+                        <button class="dropdown-toggle border-0 p-2" data-bs-toggle="dropdown">
+                            <small> &#9727; Trigonometry</small>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="#" onclick="sinFunction()">sin</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#" onclick="cosFunction()">cos</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#" onclick="tanFunction()">tan</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#" onclick="asinhFunction()">asinh</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#" onclick="acoshFunction()">acosh</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#" onclick="atanhFunction()">atanh</a>
+                            </li>
+                        </ul>
+                    </td>
+                    <!-- Trigonometry dropdown ends -->
+
+
+                    <!-- Function dropdown starts -->
+                    <td colspan="2" class="dropdown" style="background-color: whitesmoke;">
+                        <button class="dropdown-toggle border-0 p-2" data-bs-toggle="dropdown">
+                            <small> &#402;&nbsp; Functions</small>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="#" onclick="floorFunction()">floor</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#" onclick="ceilFunction()">ceil</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#" onclick="roundOffFunction()">round</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#" onclick="signFunction()">sign</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#" onclick="truncFunction()">trunc</a>
+                            </li>
+                        </ul>
+                    </td>
+                    <!-- Function dropdown ends -->
+                </tr>
+                <!-- row ends -->
+            </table>
+
+
+
+            <table>
+                <tr>
+                    <td>
+                        <button style="background-color: rgba(136, 127, 127, 0); border: hidden;">2<sup>nd</sup></button>
+                    </td>
+                    <td>
+                        <button onclick="calculate('pi')">&pi;</button>
+                    </td>
+                    <td>
+                        <button onclick="calculate()">e</button>
+                    </td>
+                    <td>
+                        <button onclick="clr()">C</button>
+                    </td>
+                    <td>
+                        <button onclick="del()">&#x232b;</button>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        <button onclick="calculate(`^2`)">x<sup>2</sup></button>
+                    </td>
+                    <td>1/x</td>
+                    <td>
+                        <button onclick="calculate('|')">| x |</button>
+                    </td>
+                    <td> 
+                        <button onclick="calculate('exp')">exp</button>
+                    </td>
+                    <td>
+                        <button onclick="calculate('%')">mod</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <button onclick="calculate('√')">√&nbsp;x</button>
+                    </td>
+                    <td> 
+                        <button onclick="calculate('(')">(</button>
+                    </td>
+
+                    <td>
+                        <button onclick="calculate(')')">)</button>
+                    </td>
+                    <td>
+                        <button onclick="calculate('!')">n!</button>
+                    </td>
+                    <td>
+                        <button onclick="calculate('/')">÷</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <button onclick="calculate('^')">x<sup>y</sup></button>
+                    </td>
+
+                    <td style=" background-color: rgba(255, 255, 255, 0.801);">
+                        <button onclick=" calculate('7')">7</button>
+                    </td>
+
+                    <td style=" background-color: rgba(255, 255, 255, 0.801);">
+                        <button onclick=" calculate('8')">8</button>
+                    </td>
+
+                    <td style=" background-color: rgba(255, 255, 255, 0.801);">
+                        <button onclick=" calculate('9')">9</button>
+                    </td>
+
+                    <td>
+                        <button onclick="calculate('*')">X</button>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        <button onclick="calculate('10^')">10<sup>x</sup></button>
+                    </td>
+
+                    <td style=" background-color: rgba(255, 255, 255, 0.801);">
+                        <button onclick=" calculate(4)">4</button>
+                    </td>
+
+                    <td style=" background-color: rgba(255, 255, 255, 0.801);">
+                        <button onclick=" calculate(5)">5</button>
+                    </td>
+
+                    <td style=" background-color: rgba(255, 255, 255, 0.801);">
+                        <button onclick=" calculate(6)">6</button>
+                    </td>
+
+                    <td>
+                        <button onclick="calculate('-')">-</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <button onclick="log('log')">log</button>
+                    </td>
+
+                    <td style=" background-color: rgba(255, 255, 255, 0.801);">
+                        <button onclick=" calculate(1)">1</button>
+                    </td>
+
+                    <td style=" background-color: rgba(255, 255, 255, 0.801);">
+                        <button onclick=" calculate(2)">2
+                    </td>
+
+                    <td style=" background-color: rgba(255, 255, 255, 0.801);">
+                        <button onclick=" calculate(3)">3</button>
+                    </td>
+
+                    <td>
+                        <button onclick="calculate('+')">+</button>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        <button onclick="calculate('ln')">ln</button>
+                    </td>
+
+                    <td style=" background-color: rgba(255, 255, 255, 0.801);">
+                        <button onclick="calculate('-')">+/-</button>
+                    </td>
+
+                    <td style=" background-color: rgba(255, 255, 255, 0.801);">
+                        <button onclick="calculate(0)">0</button>
+                    </td>
+
+                    <td style=" background-color: rgba(255, 255, 255, 0.801);">
+                        <button onclick="calculate('.')">.</button>
+                    </td>
+
+                    <td style=" background-color: #67bbec80;">
+                        <button style="background-color: #67bbec00; border: hidden;" onclick="Result()">=</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <script src="index.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+
+</body>
+</html>
